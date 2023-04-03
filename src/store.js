@@ -1,8 +1,8 @@
 import { reactive } from "vue";
 
-export const shows = reactive (
+export const store = reactive (
     {
-        movieList: [],
+        movies: [],
         tvSeries: [],
         search: '',
     }

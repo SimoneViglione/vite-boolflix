@@ -2,7 +2,7 @@
 
   import axios from 'axios';
 
-  import { shows } from './store.js';
+  import { store } from './store.js';
 
   import TheHeader from './components/TheHeader.vue';
   import MoviesDisplay from './components/MoviesDisplay.vue'
@@ -12,7 +12,7 @@
 
     data() {
     return {
-      shows,
+      store,
     }
   },
   methods: {
@@ -20,13 +20,14 @@
     searchMovies() {
       let urlApi = 'https://api.themoviedb.org/3/search/movie?api_key=a91336465eb3fe5bd14a421736bbed22'
 
-      if (shows.search.length > 0) {
-          urlApi += `?name=${shows.search}`;
+      if (store.search.length > 0) {
+          urlApi += `&query=${store.search}&language=it-IT`;
         }
 
         axios.get(urlApi)
         .then(response => {
-        this.shows.movieList = response.data.results;
+        this.store.movies = response.data.results;
+        console.log(response.data.results);
       });
     }
   }

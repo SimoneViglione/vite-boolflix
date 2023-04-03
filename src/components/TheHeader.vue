@@ -1,11 +1,11 @@
 <script>
-    import { shows } from '../store';
+    import { store } from '../store';
 
     export default {
         name: 'TheHeader',
         data() {
             return {
-                shows
+                store
             }
         }
     }
@@ -15,7 +15,7 @@
     <div class="container">
        <h1>Boolflix</h1> 
 
-        <input type="text" class="searchbar" placeholder="cerca un film" v-model="shows.search">
+        <input @keyup.enter="$emit('doSearch')" type="text" class="searchbar" placeholder="cerca un film" v-model="store.search">
         <button @click="$emit('doSearch')">cerca</button>
  
     </div>
@@ -37,5 +37,11 @@
 
     .searchbar {
         margin-left: 1000px;
+        padding: 2px;
+    }
+
+    button {
+        padding: 2px;
+        margin-left: 5px;
     }
 </style>

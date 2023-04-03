@@ -1,11 +1,11 @@
 <script>
-  import { shows } from '../store';
+  import { store } from '../store';
 
   export default {
         name: 'MoviesDisplay',
         data() {
             return {
-                shows
+                store
             }
         }
     }
@@ -14,8 +14,11 @@
 <template>
     <div>
         <ul>
-            <li v-for="(show, index) in shows.movieList" :key="index">
-                <h1>ciao</h1>
+            <li v-for="(movie, index) in store.movies" :key="index">
+                <h4>{{ movie.title }}</h4>
+                <h4>{{ movie.original_title }}</h4>
+                <h4>{{ movie.original_language }}</h4>
+                <h4>{{ movie.vote_average }}</h4>
             </li>
         </ul>
     </div>
