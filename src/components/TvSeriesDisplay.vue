@@ -1,14 +1,14 @@
 <script>
-import { store } from '../store';
+    import { store } from '../store';
 
-export default {
-    name: 'MoviesDisplay',
-    data() {
-        return {
-            store
-        }
-    },
-    methods: {
+    export default {
+        name: 'TvSeriesDisplay',
+        data() {
+            return {
+                store
+            }
+        },
+        methods: {
         getLanguageFlag(language) {
             if (language === 'en') {
                 return '/en.svg';
@@ -29,51 +29,39 @@ export default {
             } else if (language === 'ch') {
                 return '/ch.svg';
             } else if (language === 'ru') {
-                return '/ru.svg'; 
+                return '/ru.svg';  
             } else if (language === 'ko') {
-                return '/ko.svg'; 
+                return '/ko.svg';
             } else {
-                return '{{ movie.original_language }}';
+                return '{{ series.original_language }}';
             }
-        },
-        getImageUrl(posterPath) {
-        return `https://image.tmdb.org/t/p/w500${posterPath}`;
         }
     }
 }
+
 </script>
 
 <template>
     <div class="window">
-        <h1>Movies</h1>
+        <h1>TV Series</h1>
         <ul>
-            <li v-for="(movie, index) in store.movies" :key="index">
+            <li v-for="(series, index) in store.tvSeries" :key="index">
                 <div>
-                    <img :src="getImageUrl(movie.poster_path)" alt="Movie poster" class="poster"/>
+                    <img />
                 </div>
-                <h4>{{ movie.title }}</h4>
-                <h4>{{ movie.original_title }}</h4>
+                <h4>{{ series.name }}</h4>
+                <h4>{{ series.original_name }}</h4>
                 <div>
-                    <img :src="getLanguageFlag(movie.original_language)" alt="Language Flag" class="flag" />
+                    <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
                 </div>
-                <i v-for="n in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i>
+                <h4>{{ Math.ceil(series.vote_average) }}</h4>
             </li>
         </ul>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    
     .flag {
         width: 20px;
     }
-
-    .poster {
-        width: 200px;
-    } 
-
-    .fa-star {
-        color: yellow;
-    }
-
 </style>
