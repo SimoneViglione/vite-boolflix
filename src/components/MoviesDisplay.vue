@@ -27,12 +27,15 @@ export default {
                 <div>
                     <img :src="getImageUrl(movie.poster_path)" alt="Movie poster" class="poster"/>
                 </div>
-                <h4>{{ movie.title }}</h4>
-                <h4>{{ movie.original_title }}</h4>
+                <h4>Titolo: {{ movie.title }}</h4>
+                <h4>Titolo originale: {{ movie.original_title }}</h4>
                 <div>
-                    <img :src="getLanguageFlag(movie.original_language)" alt="Language Flag" class="flag" />
+                    Lingua originale: <img :src="getLanguageFlag(movie.original_language)" alt="Language Flag" class="flag" />
                 </div>
-                <i v-for="n in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i>
+                <div>
+                   Voto: <i v-for="n in Math.ceil(movie.vote_average / 2)" class="fa-solid fa-star"></i> 
+                </div>
+                
             </li>
         </ul>
     </div>

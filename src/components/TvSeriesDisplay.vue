@@ -28,12 +28,14 @@
                 <div>
                     <img :src="getImageUrl(series.poster_path)" alt="Series poster" class="poster"/>/>
                 </div>
-                <h4>{{ series.name }}</h4>
-                <h4>{{ series.original_name }}</h4>
+                <h4>Titolo: {{ series.name }}</h4>
+                <h4>Titolo originale :{{ series.original_name }}</h4>
                 <div>
-                    <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
+                    Lingua originale: <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
                 </div>
-                <i v-for="n in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i>
+                <div>
+                    Voto: <i v-for="n in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i>
+                </div>
             </li>
         </ul>
     </div>
