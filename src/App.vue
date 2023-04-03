@@ -38,6 +38,36 @@
           this.store.tvSeries = response.data.results;
           console.log(response.data.results);
       });
+    },
+    getLanguageFlag(language) {
+        if (language === 'en') {
+            return '/en.svg';
+        } else if (language === 'it') {
+            return '/it.svg';
+        } else if (language === 'fr') {
+            return '/fr.svg';
+        } else if (language === 'ja') {
+            return '/ja.svg';
+        } else if (language === 'de') {
+            return '/de.svg';
+        } else if (language === 'es') {
+            return '/es.svg';
+        } else if (language === 'pt') {
+            return '/pt.svg'; 
+        } else if (language === 'zh') {
+            return '/zh.svg';
+        } else if (language === 'ch') {
+            return '/ch.svg';
+        } else if (language === 'ru') {
+            return '/ru.svg'; 
+        } else if (language === 'ko') {
+            return '/ko.svg'; 
+        } else {
+            return '{{ movie.original_language }}';
+        }
+    },
+    getImageUrl(posterPath) {
+    return `https://image.tmdb.org/t/p/w500${posterPath}`;
     }
   }
 }
@@ -49,9 +79,9 @@
   </header>
 
   <main>
-    <MoviesDisplay/>
+    <MoviesDisplay :getLanguageFlag="getLanguageFlag" :getImageUrl="getImageUrl"/>
 
-    <TvSeriesDisplay/>
+    <TvSeriesDisplay :getLanguageFlag="getLanguageFlag" :getImageUrl="getImageUrl" />
   </main>
 </template>
 

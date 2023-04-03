@@ -8,36 +8,12 @@ export default {
             store
         }
     },
-    methods: {
-        getLanguageFlag(language) {
-            if (language === 'en') {
-                return '/en.svg';
-            } else if (language === 'it') {
-                return '/it.svg';
-            } else if (language === 'fr') {
-                return '/fr.svg';
-            } else if (language === 'ja') {
-                return '/ja.svg';
-            } else if (language === 'de') {
-                return '/de.svg';
-            } else if (language === 'es') {
-                return '/es.svg';
-            } else if (language === 'pt') {
-                return '/pt.svg'; 
-            } else if (language === 'zh') {
-                return '/zh.svg';
-            } else if (language === 'ch') {
-                return '/ch.svg';
-            } else if (language === 'ru') {
-                return '/ru.svg'; 
-            } else if (language === 'ko') {
-                return '/ko.svg'; 
-            } else {
-                return '{{ movie.original_language }}';
-            }
+    props: {
+        getLanguageFlag: {
+        type: Function,
         },
-        getImageUrl(posterPath) {
-        return `https://image.tmdb.org/t/p/w500${posterPath}`;
+        getImageUrl: {
+        type: Function,
         }
     }
 }
@@ -45,7 +21,7 @@ export default {
 
 <template>
     <div class="window">
-        <h1>Movies</h1>
+        <h1 style="color: red;">Movies</h1>
         <ul>
             <li v-for="(movie, index) in store.movies" :key="index">
                 <div>
@@ -63,17 +39,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    
-    .flag {
-        width: 20px;
-    }
-
-    .poster {
-        width: 200px;
-    } 
-
-    .fa-star {
-        color: yellow;
-    }
 
 </style>
