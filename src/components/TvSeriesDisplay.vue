@@ -25,16 +25,24 @@
         <h1 style="color: red;">TV Series</h1>
         <ul>
             <li v-for="(series, index) in store.tvSeries" :key="index">
-                <div>
-                    <img :src="getImageUrl(series.poster_path)" alt="Series poster" class="poster"/>/>
-                </div>
-                <h4>Titolo: {{ series.name }}</h4>
-                <h4>Titolo originale :{{ series.original_name }}</h4>
-                <div>
-                    Lingua originale: <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
-                </div>
-                <div>
-                    Voto: <i v-for="n in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img :src="getImageUrl(series.poster_path)" alt="Series poster" class="poster"/>
+                        </div>
+
+                        <div class="flip-card-back">
+                            <h4>Titolo: {{ series.name }}</h4>
+                            <h4>Titolo originale :{{ series.original_name }}</h4>
+                            <div>
+                                Lingua originale: <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
+                            </div>
+
+                            <div>
+                                Voto: <i v-for="n in Math.ceil(series.vote_average / 2)" class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -43,4 +51,8 @@
 
 <style lang="scss" scoped>
     
+    h1 {
+        margin-bottom: 1rem;
+    }
+
 </style>

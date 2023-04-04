@@ -67,7 +67,10 @@
         }
     },
     getImageUrl(posterPath) {
-    return `https://image.tmdb.org/t/p/w500${posterPath}`;
+      if (!posterPath) {
+        return '/fallback.jpg';
+      }
+      return `https://image.tmdb.org/t/p/w342${posterPath}`;
     }
   }
 }
