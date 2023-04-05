@@ -16,7 +16,7 @@
 
   <template>
     <div v-if="loading" class="loading">
-      <h1>Boolflix</h1>
+      <h1 class="fade-in">Boolflix</h1>
     </div>
   </template>
 
@@ -40,5 +40,20 @@
     font-family: 'Bebas Neue', cursive;
     font-size: 10rem;
   }
+
+  .fade-in {
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
   </style>
   

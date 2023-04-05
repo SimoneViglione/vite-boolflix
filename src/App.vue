@@ -21,6 +21,9 @@
   methods: {
 
     searchMovies() {
+
+      this.show = false;
+
       let urlMovieApi = 'https://api.themoviedb.org/3/search/movie?api_key=a91336465eb3fe5bd14a421736bbed22'
       let urlSeriesApi = 'https://api.themoviedb.org/3/search/tv?api_key=a91336465eb3fe5bd14a421736bbed22'
 
@@ -40,6 +43,9 @@
           this.store.tvSeries = response.data.results;
           console.log(response.data.results);
       });
+
+      this.store.show = false;
+
     },
     getLanguageFlag(language) {
         if (language === 'en') {
@@ -67,9 +73,27 @@
         return '/fallback.jpg';
       } 
       return `https://image.tmdb.org/t/p/w342${posterPath}`;
+    },
+    getPopularMovies() {
+        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=a91336465eb3fe5bd14a421736bbed22&language=it-It&page=1')
+          .then(response => {
+            this.store.popular = response.data.results;
+            console.log(response.data.results);
+          });
+    },
+    getPopularTV() {
+        axios.get('https://api.themoviedb.org/3/tv/popular?api_key=a91336465eb3fe5bd14a421736bbed22&language=it-IT&page=1')
+          .then(response => {
+            this.store.popularTV = response.data.results;
+            console.log(response.data.results);
+          });
+    },  
+    },
+    mounted() {
+      this.getPopularMovies();
+      this.getPopularTV();
     }
   }
-}
 </script>
 
 <template> 
@@ -81,6 +105,7 @@
   </header>
 
   <main>
+
     <MoviesDisplay :getLanguageFlag="getLanguageFlag" :getImageUrl="getImageUrl"/>
 
     <TvSeriesDisplay :getLanguageFlag="getLanguageFlag" :getImageUrl="getImageUrl" />
