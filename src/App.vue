@@ -54,10 +54,6 @@
             return '/de.svg';
         } else if (language === 'es') {
             return '/es.svg';
-        } else if (language === 'pt') {
-            return '/pt.svg'; 
-        } else if (language === 'zh') {
-            return '/zh.svg';
         } else if (language === 'ch') {
             return '/ch.svg';
         } else if (language === 'ru') {

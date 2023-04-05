@@ -35,7 +35,9 @@
                             <h4>Titolo: {{ series.name }}</h4>
                             <h4>Titolo originale :{{ series.original_name }}</h4>
                             <div>
-                                Lingua originale: <img :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
+                                <h4>Lingua originale</h4>: 
+                               <img v-if="getLanguageFlag(series.original_language)" :src="getLanguageFlag(series.original_language)" alt="Language Flag" class="flag" />
+                               <h4 v-else>{{ series.original_language }}</h4>
                             </div>
 
                             <div>

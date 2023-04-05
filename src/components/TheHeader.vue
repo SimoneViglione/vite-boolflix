@@ -33,6 +33,7 @@
             h1 {
                 margin-left: 30px;
                 font-family: 'Bebas Neue', cursive;
+                font-size: 3rem;
             }
     }
 
