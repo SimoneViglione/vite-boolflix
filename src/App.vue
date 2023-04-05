@@ -28,9 +28,9 @@
         }
 
         axios.get(urlMovieApi)
-        .then(response => {
-        this.store.movies = response.data.results;
-        console.log(response.data.results);
+          .then(response => {
+          this.store.movies = response.data.results;
+          console.log(response.data.results);
       });
 
         axios.get(urlSeriesApi)
@@ -69,7 +69,7 @@
     getImageUrl(posterPath) {
       if (!posterPath) {
         return '/fallback.jpg';
-      }
+      } 
       return `https://image.tmdb.org/t/p/w342${posterPath}`;
     }
   }

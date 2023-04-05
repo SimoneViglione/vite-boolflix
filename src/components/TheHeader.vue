@@ -25,23 +25,29 @@
 <style lang="scss" scoped>
     .container {
         height: 100px;
-        background-color: black;
+        background-color: rgb(0, 0, 0);
         color: red;
         align-items: center;
         display: flex;
 
             h1 {
                 margin-left: 30px;
+                font-family: 'Bebas Neue', cursive;
             }
     }
 
     .searchbar {
         margin-left: 1000px;
         padding: 2px;
+        font-family: 'Bebas Neue', cursive;
     }
 
     button {
-        padding: 2px;
+        padding: 4px 8px;
         margin-left: 5px;
+        font-family: 'Bebas Neue', cursive;
+        background-color: red;
+        border: none;
+        border-radius: 5px;
     }
 </style>
