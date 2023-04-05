@@ -7,9 +7,11 @@
   import TheHeader from './components/TheHeader.vue';
   import MoviesDisplay from './components/MoviesDisplay.vue';
   import TvSeriesDisplay from './components/TvSeriesDisplay.vue';
+  import LoadingPage from './components/LoadingPage.vue';
 
   export default {
-    components: {TheHeader, MoviesDisplay, TvSeriesDisplay},
+    name: 'App',
+    components: {TheHeader, MoviesDisplay, TvSeriesDisplay, LoadingPage},
 
     data() {
     return {
@@ -62,9 +64,7 @@
             return '/ru.svg'; 
         } else if (language === 'ko') {
             return '/ko.svg'; 
-        } else {
-            return '{{ movie.original_language }}';
-        }
+        } 
     },
     getImageUrl(posterPath) {
       if (!posterPath) {
@@ -76,7 +76,10 @@
 }
 </script>
 
-<template>  
+<template> 
+
+  <LoadingPage/>
+
   <header>
     <TheHeader @doSearch="searchMovies"/>
   </header>

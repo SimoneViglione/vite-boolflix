@@ -34,7 +34,9 @@ export default {
                             <h4>Titolo: {{ movie.title }}</h4>
                             <h4>Titolo originale: {{ movie.original_title }}</h4>
                             <div>
-                               <h4>Lingua originale</h4>: <img :src="getLanguageFlag(movie.original_language)" alt="Language Flag" class="flag" />
+                               <h4>Lingua originale</h4>: 
+                               <img v-if="getLanguageFlag(movie.original_language)" :src="getLanguageFlag(movie.original_language)" alt="Language Flag" class="flag" />
+                               <h4 v-else>{{ movie.original_language }}</h4>
                             </div>
                             <div>
                                 <h4>Voto</h4>: 
@@ -57,7 +59,7 @@ export default {
 
     h1 {
         margin-bottom: 1rem;
-        color: red;
+        color: rgb(0, 223, 107);
         font-family: 'Bebas Neue', cursive;
     }
 

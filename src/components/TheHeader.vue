@@ -25,8 +25,8 @@
 <style lang="scss" scoped>
     .container {
         height: 100px;
-        background-color: rgb(0, 0, 0);
-        color: red;
+        background-color: rgb(12, 0, 124);
+        color: rgb(0, 223, 107);
         align-items: center;
         display: flex;
 
@@ -46,7 +46,7 @@
         padding: 4px 8px;
         margin-left: 5px;
         font-family: 'Bebas Neue', cursive;
-        background-color: red;
+        background-color: rgb(0, 223, 107);
         border: none;
         border-radius: 5px;
     }
